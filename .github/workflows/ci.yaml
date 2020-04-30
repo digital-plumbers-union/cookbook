@@ -13,6 +13,7 @@ jobs:
       run: mdbook build
     - name: Publish changes
       run: |
+        apt update && apt install -y git
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git worktree add /tmp/book gh-pages
