@@ -22,10 +22,11 @@ jobs:
       run: |
         set +x
         printenv | grep GITHUB
-        git worktree add /tmp/book gh-pages
-        rm -rf /tmp/book/* /tmp/book/
-        cp -rp book/* /tmp/book
-        cd /tmp/book
+        git worktree add ~/tmp/book gh-pages
+        mkdir -p ~/tmp/book
+        rm -rf ~/tmp/book/* ~/tmp/book/
+        cp -rp book/* ~/tmp/book
+        cd ~/tmp/book
         # git config --global user.email "action@github.com"
         # git config --global user.name "GitHub Action"
         git add -A
