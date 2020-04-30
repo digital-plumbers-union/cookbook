@@ -10,8 +10,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set up env
       run: |
-        curl https://sh.rustup.rs -sSf | sh -s -- -y
-        source $HOME/.cargo/env
+        # curl https://sh.rustup.rs -sSf | sh -s -- -y
+        # source $HOME/.cargo/env
         cargo install cargo-update
         cargo install --vers "^0.3" mdbook
         cargo install-update -a
