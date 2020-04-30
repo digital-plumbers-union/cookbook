@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build book
-      run: mdbook build src
+      run: mdbook build
     - name: Publish changes
       run: |
         git config --local user.email "action@github.com"
