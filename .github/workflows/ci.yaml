@@ -9,6 +9,8 @@ jobs:
     container: hrektts/mdbook
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Write the book
       run: |
         apt update && apt install -y git
