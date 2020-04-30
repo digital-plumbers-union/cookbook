@@ -12,6 +12,7 @@ jobs:
     - name: Write the book
       run: |
         apt update && apt install -y git
+        pwd && ls -la
         git worktree add /tmp/book gh-pages
         mdbook build
         rm -rf /tmp/book/* /tmp/book/
