@@ -9,17 +9,16 @@ jobs:
     container: hrektts/mdbook
     steps:
     - uses: actions/checkout@v2
-    - name: Build book
-      run: mdbook build
-    - name: Publish changes
+    - name: Write the book
       run: |
         apt update && apt install -y git
         git worktree add /tmp/book gh-pages
+        mdbook build
         rm -rf /tmp/book/* /tmp/book/
         cp -rf book/* /tmp/book
         cd /tmp/book
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
         git add -A
         git commit -m "Update book"
         git push "https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${REPOSITORY}.git" HEAD:gh-pages
