@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Set up env
       run: |
+        git fetch --prune --unshallow
         # curl https://sh.rustup.rs -sSf | sh -s -- -y
         # source $HOME/.cargo/env
         cargo install cargo-update
